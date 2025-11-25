@@ -4,6 +4,7 @@ import image748 from '../assets/images/image748.png';
 import image749 from '../assets/images/image749.png';
 import image750 from '../assets/images/image750.jpg';
 import vectorIcon from '../assets/images/vector.svg';
+import favicon from '../assets/images/favicon.png';
 
 const featuresData = [
   {
@@ -40,7 +41,6 @@ export default function LandingPage() {
   const [activeNavSection, setActiveNavSection] = useState('hero');
   const [parallaxOffset, setParallaxOffset] = useState(0);
   const [visibleSections, setVisibleSections] = useState<Set<number>>(new Set());
-  const [footerVisible, setFooterVisible] = useState(false);
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
   const [cursorDotPos, setCursorDotPos] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
@@ -50,7 +50,6 @@ export default function LandingPage() {
   const contactRef = useRef<HTMLDivElement>(null);
   const parallaxImageRef = useRef<HTMLDivElement>(null);
   const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const footerContentRef = useRef<HTMLDivElement>(null);
 
   // Navigation scroll spy
   useEffect(() => {
@@ -91,29 +90,6 @@ export default function LandingPage() {
     handleParallaxScroll();
 
     return () => window.removeEventListener('scroll', handleParallaxScroll);
-  }, []);
-
-  // Intersection Observer for footer section
-  useEffect(() => {
-    if (!footerContentRef.current) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setFooterVisible(true);
-          }
-        });
-      },
-      {
-        threshold: 0.2,
-        rootMargin: '-50px'
-      }
-    );
-
-    observer.observe(footerContentRef.current);
-
-    return () => observer.disconnect();
   }, []);
 
   // Custom cursor movement (only for non-touch devices)
@@ -193,7 +169,7 @@ export default function LandingPage() {
     };
   }, []);
 
-  const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
+  const scrollToSection = (ref: React.RefObject<HTMLDivElement | null>) => {
     ref.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
@@ -291,7 +267,7 @@ export default function LandingPage() {
           {/* Header with Logo and Close Button */}
           <div className="flex items-center justify-between mb-12">
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-[#eb593a] rounded-full"></div>
+              <img src={favicon} alt="Kaaka Logo" className="w-8 h-8 object-contain" />
               <span className="font-bold text-white text-[20px] tracking-[-1.211px]">KAAKA</span>
             </div>
             <button 
@@ -478,7 +454,7 @@ export default function LandingPage() {
         {featuresData.map((feature, index) => (
           <div key={feature.step}>
             <div 
-              ref={(el) => (sectionRefs.current[index] = el)}
+              ref={(el) => { sectionRefs.current[index] = el; }}
               className="min-h-screen py-12 sm:py-16 md:py-20"
               style={{
                 opacity: visibleSections.has(index) ? 1 : 0,
@@ -557,7 +533,7 @@ export default function LandingPage() {
             }}
           />
         </div>
-        <div ref={footerContentRef} className="relative bg-[#2c2c2c] min-h-[500px] sm:min-h-[600px] md:min-h-[735px] py-12 sm:py-16 md:py-20 lg:py-[111px]" style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)' }}>
+        <div className="relative bg-[#2c2c2c] min-h-[500px] sm:min-h-[600px] md:min-h-[735px] py-12 sm:py-16 md:py-20 lg:py-[111px]" style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)' }}>
           <div className="flex flex-col gap-6 sm:gap-8 items-center justify-center max-w-[1144px] mx-auto px-6 sm:px-8 md:px-12">
             <div className="flex gap-6 sm:gap-8 items-start justify-center relative shrink-0 w-full">
               <div className="flex flex-col gap-12 sm:gap-16 md:gap-20 items-center relative shrink-0 w-full max-w-[544px]">
