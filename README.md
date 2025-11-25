@@ -1,73 +1,140 @@
-# React + TypeScript + Vite
+# Kaaka - Your AI Cooking Assistant 🍳
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Transform your grocery receipts into delicious recipes with AI. Kaaka is a modern, responsive landing page for an AI-powered cooking assistant app.
 
-Currently, two official plugins are available:
+![Kaaka Landing Page](https://img.shields.io/badge/React-18.3-blue) ![TypeScript](https://img.shields.io/badge/TypeScript-5.6-blue) ![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.0-blue)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## React Compiler
+- **Modern Design**: Clean, minimalist interface with custom animations
+- **Fully Responsive**: Optimized for desktop, tablet, and mobile devices
+- **Custom Cursor**: Interactive circular cursor for desktop users (Framer-style)
+- **Hamburger Menu**: Sleek mobile navigation with smooth slide-in animation
+- **Parallax Effects**: Smooth scrolling parallax on hero images
+- **Micro-interactions**: Hover effects, scale animations, and smooth transitions
+- **Scroll Animations**: Elements fade in as you scroll through the page
+- **Accessibility**: Semantic HTML, ARIA labels, and keyboard navigation
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🎨 Design Highlights
 
-## Expanding the ESLint configuration
+- **Dark Theme**: Elegant dark background (#060606) with orange accents (#eb593a)
+- **Typography**: Custom font stack with 'NB International' and Helvetica
+- **Animations**: Framer Motion-inspired micro-interactions
+- **Alternating Layouts**: "How it Works" section with alternating text/image positions
+- **Social Icons**: LinkedIn, Instagram, and TikTok integration
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Tech Stack
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **React 18.3** - Modern React with hooks
+- **TypeScript 5.6** - Type-safe development
+- **Tailwind CSS 4.0** - Utility-first styling
+- **Vite** - Fast build tool and dev server
+- **ESLint** - Code quality and consistency
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 📦 Installation
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+# Clone the repository
+git clone https://github.com/RashidLansah/Kaaka.git
+
+# Navigate to project directory
+cd Kaaka
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🛠️ Development
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+# Run development server
+npm run dev
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+
+# Lint code
+npm run lint
 ```
+
+## 📱 Responsive Breakpoints
+
+- **Mobile**: < 640px
+- **Tablet**: 640px - 768px
+- **Desktop**: 768px - 1024px
+- **Large Desktop**: > 1024px
+
+## 🎯 Key Sections
+
+1. **Hero Section**: Eye-catching introduction with app preview
+2. **How It Works**: 4-step process with animations
+   - Take a pic of your receipt
+   - Scan & extract ingredients
+   - Get a smart recipe
+   - Chat to generate your list
+3. **Footer**: Contact information and call-to-action
+
+## 🎨 Color Palette
+
+- **Primary**: `#eb593a` (Orange)
+- **Background**: `#060606` (Dark)
+- **Secondary Background**: `#2c2c2c` (Gray)
+- **Text**: `#ffffff` (White)
+- **Border**: `rgba(255,255,255,0.15)` (Light Gray)
+
+## 🌐 Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+## 📝 Project Structure
+
+```
+Kaaka/
+├── src/
+│   ├── assets/
+│   │   └── images/          # Images and icons
+│   ├── components/
+│   │   └── LandingPage.tsx  # Main landing page component
+│   ├── App.tsx              # Root component
+│   ├── index.css            # Global styles
+│   └── main.tsx             # Entry point
+├── public/                  # Static assets
+├── index.html               # HTML template
+├── package.json             # Dependencies
+├── tailwind.config.js       # Tailwind configuration
+├── vite.config.ts           # Vite configuration
+└── tsconfig.json            # TypeScript configuration
+```
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 👨‍💻 Author
+
+**Rashid Lansah**
+
+- GitHub: [@RashidLansah](https://github.com/RashidLansah)
+
+## 🙏 Acknowledgments
+
+- Design inspiration from Framer and modern cooking apps
+- Icons from custom SVG library
+- Built with React, TypeScript, and Tailwind CSS
+
+---
+
+**Made with ❤️ and AI**
